@@ -1,0 +1,123 @@
+--keep=
+building= and addr:housenumber=
+highway= and name=
+boundary=administrative and name=
+place= and name=
+advertising=billboard =column =culpture =flag =screen =sign =wall_painting
+aeroway=aerodrome =helipad
+amenity=arts_centre =atm =bank =bar =bicycle_parking =bicycle_rental =biergarten =bureau_de_change =bus_station =cafe =car_rental =car_wash =charging_station =cinema =clinic =clock =college =community_centre =courthouse =customs =dentist =doctors =drinking_water =driving_school =embassy =fast_food =ferry_terminal =fire_station =food_court =fountain =fuel =hospital =internet_cafe =kindergarten =library =marketplace =monastery =mortuary =nightclub =nursing_home =parking =parking_entrance =pharmacy =place_of_worship =police =post_box =post_office =prison =pub =recycling =register_office =restaurant =sauna =school =shelter =social_facility =studio =taxi =telephone =theatre =toilets =townhall =university =vehicle_inspection =vehicle_ramp =veterinary =waste_disposal
+atm=yes
+barrier=gate =lift_gate =toll_booth
+beauty=nails
+club=art =astronomy =automobile =board_games =charity =chess =cinema =computer =ethnic =fan =fishing =game =history =hunting =linux =motorcycle =music =nature =photography =shooting =sport =theatre =tourism =veterans
+craft=agricultural_engines =basket_maker =beekeeper =blacksmith =boatbuilder =bookbinder =brewery =carpenter =carpet_layer =caterer =clockmaker =computer =dressmaker =electrician =gardener =glaziery =handicraft =hvac =insulation =jeweller =key_cutter =locksmith =metal_construction =optician =painter =parquet_layer =photographer =photographic_laboratory =plasterer =plumber =pottery =rigger =roofer =saddler =sailmaker =sawmill =scaffolder =sculptor =shoemaker =stand_builder =stonemason =sun_protection =sweep =tailor =tiler =tinsmith =upholsterer =watchmaker =window_construction
+emergency=ambulance_station =fire_hydrant =fire_water_pond =phone
+ford=yes
+generator:output:electricity=
+government=bailiff =migration =pension_fund =prosecutor =taxes
+highway=bus_stop =raceway =speed_camera =traffic_signals
+historic=archaeological_site =battlefield =boundary_stone =castle =city_gate =fort =memorial =monument =ruins =rune_stone =ship =wreck
+landuse=cemetery =construction =garages =landfill
+lawyer=notary
+leisure=beach_resort =dance =dog_park =fishing =golf_course =ice_rink =marina =miniature_golf =park =pitch =playground =slipway =sports_centre =stadium =swimming_pool =track =water_park
+man_made=bridge =lighthouse =standpipe =surveillance =telephone_exchange =tower =tunnel =wastewater_plant =water_tower =water_well =water_works
+mountain_pass=yes
+natural=bay =beach =cape =cave_entrance =peak =saddle =spring =strait =volcano =waterfall =rock =bare_rock =cliff
+office=accountant =administrative =advertising_agency =architect =company =educational_institution =employment_agency =estate_agent =government =insurance =it =lawyer =newspaper =ngo =research =telecommunication =travel_agent
+plant:output:electricity=
+power=generator =plant =substation =station =transformer =line
+railway=funicular =halt =station =subway_entrance =tram_stop
+religion=christian =jewish =muslim
+seamark:beacon_special_purpose:category=leading
+seamark:type=beacon_special_purpose =buoy_lateral
+service=tyres
+shop=alcohol =anime =antiques =art =atv =baby_goods =bag =bakery =bathroom_furnishing =beauty =bed =bedding =beverages =bicycle =bookmaker =books =boutique =butcher =car =car_parts =car_repair =carpet =charity =chemist =clothes =computer =confectionery =convenience =copyshop =cosmetics =curtain =deli =department_store =dive =doityourself =dry_cleaning =electronics =erotic =fabric =farm =fishing =florist =frame =funeral_directors =furniture =garden_centre =gas =gift =glaziery =greengrocer =hairdresser =hardware =hearing_aids =herbalist =hifi =houseware =hunting =ice_cream =interior_decoration =jewelry =kiosk =kitchen =laundry =mall =massage =mobile_phone =money_lender =motorcycle =musical_instrument =newsagent =optician =organic =outdoor =paint =pawnbroker =pet =radiotechnics =seafood =second_hand =sewing =ship_chandler =shoes =sports =stationery =supermarket =tableware =tattoo =tea =ticket =tobacco =toys =trade =vacuum_cleaner =variety_store =video =window_blind
+sport=cycling =horse_racing =running
+station=subway
+theatre:genre=circus
+tourism=artwork =attraction =camp_site =guest_house =hostel =hotel =information =motel =museum =picnic_site =theme_park =viewpoint =zoo
+tower:type=communication
+traffic_calming=bump =cushion =hump
+voltage=
+waterway=waterfall
+
+--keep-relations=
+type=associatedStreet =street =boundary =multipolygon
+
+--keep-tags=
+all
+type=associatedStreet =street =boundary =multipolygon
+ISO3166-1:alpha2=
+addr:housenumber=
+addr_housenumber2=
+addr:postcode=
+addr:street=
+addr:suburb=
+admin_level=
+contact:email=
+contact:fax=
+contact:phone=
+contact:website=
+email=
+fax=
+phone=
+website=
+name=
+name:en=
+name:uk=
+name:ru=
+name:pl=
+name:be=
+int_name=
+alt_name=
+old_name=
+operator=
+population=
+wikipedia=
+wikidata=
+koatuu=
+name:prefix=
+opening_hours=
+building=
+highway=
+boundary=administrative
+place=
+advertising=billboard =column =culpture =flag =screen =sign =wall_painting
+aeroway=aerodrome =helipad
+amenity=arts_centre =atm =bank =bar =bicycle_parking =bicycle_rental =biergarten =bureau_de_change =bus_station =cafe =car_rental =car_wash =charging_station =cinema =clinic =clock =college =community_centre =courthouse =customs =dentist =doctors =drinking_water =driving_school =embassy =fast_food =ferry_terminal =fire_station =food_court =fountain =fuel =hospital =internet_cafe =kindergarten =library =marketplace =monastery =mortuary =nightclub =nursing_home =parking =parking_entrance =pharmacy =place_of_worship =police =post_box =post_office =prison =pub =recycling =register_office =restaurant =sauna =school =shelter =social_facility =studio =taxi =telephone =theatre =toilets =townhall =university =vehicle_inspection =vehicle_ramp =veterinary =waste_disposal
+atm=yes
+barrier=gate =lift_gate =toll_booth
+beauty=nails
+club=art =astronomy =automobile =board_games =charity =chess =cinema =computer =ethnic =fan =fishing =game =history =hunting =linux =motorcycle =music =nature =photography =shooting =sport =theatre =tourism =veterans
+craft=agricultural_engines =basket_maker =beekeeper =blacksmith =boatbuilder =bookbinder =brewery =carpenter =carpet_layer =caterer =clockmaker =computer =dressmaker =electrician =gardener =glaziery =handicraft =hvac =insulation =jeweller =key_cutter =locksmith =metal_construction =optician =painter =parquet_layer =photographer =photographic_laboratory =plasterer =plumber =pottery =rigger =roofer =saddler =sailmaker =sawmill =scaffolder =sculptor =shoemaker =stand_builder =stonemason =sun_protection =sweep =tailor =tiler =tinsmith =upholsterer =watchmaker =window_construction
+emergency=ambulance_station =fire_hydrant =fire_water_pond =phone
+ford=yes
+generator:output:electricity=
+government=bailiff =migration =pension_fund =prosecutor =taxes
+highway=bus_stop =raceway =speed_camera =traffic_signals
+historic=archaeological_site =battlefield =boundary_stone =castle =city_gate =fort =memorial =monument =ruins =rune_stone =ship =wreck
+landuse=cemetery =construction =garages =landfill
+lawyer=notary
+leisure=beach_resort =dance =dog_park =fishing =golf_course =ice_rink =marina =miniature_golf =park =pitch =playground =slipway =sports_centre =stadium =swimming_pool =track =water_park
+man_made=bridge =lighthouse =standpipe =surveillance =telephone_exchange =tower =tunnel =wastewater_plant =water_tower =water_well =water_works
+mountain_pass=yes
+natural=bay =beach =cape =cave_entrance =peak =saddle =spring =strait =volcano =waterfall =rock =bare_rock =cliff
+office=accountant =administrative =advertising_agency =architect =company =educational_institution =employment_agency =estate_agent =government =insurance =it =lawyer =newspaper =ngo =research =telecommunication =travel_agent
+plant:output:electricity=
+power=generator =plant =substation =station =transformer =line
+railway=funicular =halt =station =subway_entrance =tram_stop
+religion=christian =jewish =muslim
+seamark:beacon_special_purpose:category=leading
+seamark:type=beacon_special_purpose =buoy_lateral
+service=tyres
+shop=alcohol =anime =antiques =art =atv =baby_goods =bag =bakery =bathroom_furnishing =beauty =bed =bedding =beverages =bicycle =bookmaker =books =boutique =butcher =car =car_parts =car_repair =carpet =charity =chemist =clothes =computer =confectionery =convenience =copyshop =cosmetics =curtain =deli =department_store =dive =doityourself =dry_cleaning =electronics =erotic =fabric =farm =fishing =florist =frame =funeral_directors =furniture =garden_centre =gas =gift =glaziery =greengrocer =hairdresser =hardware =hearing_aids =herbalist =hifi =houseware =hunting =ice_cream =interior_decoration =jewelry =kiosk =kitchen =laundry =mall =massage =mobile_phone =money_lender =motorcycle =musical_instrument =newsagent =optician =organic =outdoor =paint =pawnbroker =pet =radiotechnics =seafood =second_hand =sewing =ship_chandler =shoes =sports =stationery =supermarket =tableware =tattoo =tea =ticket =tobacco =toys =trade =vacuum_cleaner =variety_store =video =window_blind
+sport=cycling =horse_racing =running
+station=subway
+theatre:genre=circus
+tourism=artwork =attraction =camp_site =guest_house =hostel =hotel =information =motel =museum =picnic_site =theme_park =viewpoint =zoo
+tower:type=communication
+traffic_calming=bump =cushion =hump
+voltage=
+waterway=waterfall
+
+--out-o5m

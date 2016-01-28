@@ -1,0 +1,27 @@
+{
+    "tables": {
+        "firs": {
+            "fields": [
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "string",
+                    "name": "fir",
+                    "key": "FIR"
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                }
+            ],
+            "type": "polygon",
+            "mapping": {
+                "name":  ["__any__"]
+            }
+        }
+    }
+}

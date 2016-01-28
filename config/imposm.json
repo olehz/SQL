@@ -1,0 +1,5 @@
+{
+	"connection": "postgis://postgres:postgres@localhost:5432/osm",
+	"mapping": "config/mapping.json",
+	"cachedir": "data/cache"
+}
