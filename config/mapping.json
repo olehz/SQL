@@ -1,7 +1,37 @@
 {
     "tables": {
-        "firs": {
+        "power": {
             "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "integer",
+                    "name": "voltage",
+                    "key": "voltage"
+                }
+            ],
+            "type": "linestring",
+            "mapping": {
+                "power": [
+                    "line"
+                ]
+            }
+        },
+        "rels": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
                 {
                     "type": "string",
                     "name": "name",
@@ -9,19 +39,1133 @@
                 },
                 {
                     "type": "string",
-                    "name": "fir",
-                    "key": "FIR"
+                    "name": "name_ru",
+                    "key": "name:ru"
+                },
+                {
+                    "type": "string",
+                    "name": "name_pl",
+                    "key": "name:pl"
+                },
+                {
+                    "type": "string",
+                    "name": "name_uk",
+                    "key": "name:uk"
+                },
+                {
+                    "type": "string",
+                    "name": "addr_suburb",
+                    "key": "addr:suburb"
+                },
+                {
+                    "type": "string",
+                    "name": "wikipedia",
+                    "key": "wikipedia"
+                },
+                {
+                    "type": "member",
+                    "name": "streets",
+                    "key": "streets"
+                },
+                {
+                    "type": "member",
+                    "name": "houses",
+                    "key": "houses"
+                },
+                {
+                    "type": "bool",
+                    "name": "upnad",
+                    "key": "upnad"
+                }
+            ],
+            "type": "relation",
+            "mapping": {
+                "type": ["associatedStreet", "street"]
+            }
+        },
+        "admin": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "boundary",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "member",
+                    "name": "admin_centre",
+                    "key": "admin_centre"
+                },
+                {
+                    "type": "member",
+                    "name": "subareas",
+                    "key": "subareas"
+                },
+                {
+                    "type": "string",
+                    "name": "name_ru",
+                    "key": "name:ru"
+                },
+                {
+                    "type": "string",
+                    "name": "name_pl",
+                    "key": "name:pl"
+                },
+                {
+                    "type": "string",
+                    "name": "name_uk",
+                    "key": "name:uk"
+                },                
+                {
+                    "type": "string",
+                    "name": "name_en",
+                    "key": "name:en"
+                },
+                {
+                    "type": "string",
+                    "name": "name_be",
+                    "key": "name:be"
+                },
+                {
+                    "type": "integer",
+                    "name": "admin_level",
+                    "key": "admin_level"
+                },                {
+                    "type": "string",
+                    "name": "country_code",
+                    "key": "ISO3166-1:alpha2"
+                },
+                {
+                    "type": "string",
+                    "name": "wikipedia",
+                    "key": "wikipedia"
+                },
+                {
+                    "type": "string",
+                    "name": "wikidata",
+                    "key": "wikidata"
+                },
+                {
+                    "type": "string",
+                    "name": "koatuu",
+                    "key": "koatuu"
+                },
+                {
+                    "type": "string",
+                    "name": "place",
+                    "key": "place"
+                },
+                {
+                    "type": "bool",
+                    "name": "upnad",
+                    "key": "upnad"
+                }
+            ],
+            "type": "polygon",
+            "filters": {
+                "include_tags": [
+                    ["boundary", "administrative"]
+                ],
+                "exclude_tags": [
+                    ["name", "__nil__"]
+                ]
+            },
+            "mapping": {
+                "admin_level": ["2","3","4","5","6","7","8"]
+            }
+        },
+        "buildings": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
                 },
                 {
                     "type": "geometry",
                     "name": "geometry",
                     "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "addr_housenumber",
+                    "key": "addr:housenumber"
+                },
+                {
+                    "type": "string",
+                    "name": "addr_housenumber2",
+                    "key": "addr:housenumber2"
+                },
+                {
+                    "type": "string",
+                    "name": "addr_street",
+                    "key": "addr:street"
+                },
+                {
+                    "type": "string",
+                    "name": "addr_city",
+                    "key": "addr:city"
+                },
+                {
+                    "type": "string",
+                    "name": "addr_suburb",
+                    "key": "addr:suburb"
+                },
+                {
+                    "type": "bool",
+                    "name": "upnad",
+                    "key": "upnad"
                 }
             ],
             "type": "polygon",
+            "filters": {
+                "exclude_tags": [
+                    ["addr:housenumber", "__nil__"]
+                ]
+            },
             "mapping": {
-                "name":  ["__any__"]
+                "building": ["__any__"]
             }
-        }
+        },
+        "roads": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "area",
+                    "key": "area"
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "string",
+                    "name": "alt_name",
+                    "key": "alt_name"
+                },
+                {
+                    "type": "string",
+                    "name": "old_name",
+                    "key": "old_name"
+                },
+                {
+                    "type": "string",
+                    "name": "name_ru",
+                    "key": "name:ru"
+                },
+                {
+                    "type": "string",
+                    "name": "name_pl",
+                    "key": "name:pl"
+                },
+                {
+                    "type": "string",
+                    "name": "name_uk",
+                    "key": "name:uk"
+                },
+                {
+                    "type": "string",
+                    "name": "name_be",
+                    "key": "name:be"
+                },
+                {
+                    "type": "string",
+                    "name": "addr_suburb",
+                    "key": "addr:suburb"
+                },
+                {
+                    "type": "bool",
+                    "name": "upnad",
+                    "key": "upnad"
+                }
+            ],
+            "type": "linestring",
+            "filters": {
+                "exclude_tags": [
+                    ["name", "__nil__"]
+                ]
+            },
+            "mapping": {
+                "highway": [
+                    "motorway",
+                    "motorway_link",
+                    "trunk",
+                    "trunk_link",
+                    "primary",
+                    "primary_link",
+                    "secondary",
+                    "secondary_link",
+                    "tertiary",
+                    "tertiary_link",
+                    "road",
+                    "service",
+                    "pedestrian",
+                    "living_street",
+                    "unclassified",
+                    "residential",
+                    "construction",
+                    "proposed"
+                ]
+            }
+        },
+        "point_places": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "string",
+                    "name": "name_uk",
+                    "key": "name:uk"
+                },
+                {
+                    "type": "string",
+                    "name": "name_ru",
+                    "key": "name:ru"
+                },
+                {
+                    "type": "string",
+                    "name": "name_pl",
+                    "key": "name:pl"
+                },
+                {
+                    "type": "string",
+                    "name": "name_en",
+                    "key": "name:en"
+                },
+                {
+                    "type": "string",
+                    "name": "name_be",
+                    "key": "name:be"
+                },
+                {
+                    "type": "string",
+                    "name": "int_name",
+                    "key": "int_name"
+                },
+                {
+                    "type": "string",
+                    "name": "alt_name",
+                    "key": "alt_name"
+                },
+                {
+                    "type": "string",
+                    "name": "old_name",
+                    "key": "old_name"
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "place",
+                    "key": null
+                },
+                {
+                    "type": "integer",
+                    "name": "population",
+                    "key": "population"
+                },
+                {
+                    "type": "string",
+                    "name": "addr_postcode",
+                    "key": "addr:postcode"
+                },
+                {
+                    "type": "string",
+                    "name": "wikipedia",
+                    "key": "wikipedia"
+                },
+                {
+                    "type": "string",
+                    "name": "wikidata",
+                    "key": "wikidata"
+                },
+                {
+                    "type": "string",
+                    "name": "koatuu",
+                    "key": "koatuu"
+                },
+                {
+                    "type": "string",
+                    "name": "official_status",
+                    "key": "official_status"
+                },
+                {
+                    "type": "string",
+                    "name": "name_prefix",
+                    "key": "name:prefix"
+                },
+                {
+                    "type": "bool",
+                    "name": "upnad",
+                    "key": "upnad"
+                }
+            ],
+            "type": "point",
+            "filters": {
+                "exclude_tags": [
+                    ["name", "__nil__"]
+                ]
+            },
+            "mapping": {
+                "place": [
+                    "city",
+                    "town",
+                    "village",
+                    "hamlet",
+                    "suburb",
+                    "quarter",
+                    "neighbourhood",
+                    "locality",
+                    "isolated_dwelling",
+                    "farm",
+                    "allotments"
+                ]
+            }
+        },
+        "polygon_places": {
+            "fields": [
+                {
+                    "type": "id",
+                    "name": "osm_id",
+                    "key": null
+                },
+                {
+                    "type": "geometry",
+                    "name": "geometry",
+                    "key": null
+                },
+                {
+                    "type": "string",
+                    "name": "name",
+                    "key": "name"
+                },
+                {
+                    "type": "mapping_value",
+                    "name": "place",
+                    "key": null
+                },
+                {
+                    "type": "bool",
+                    "name": "upnad",
+                    "key": "upnad"
+                }
+            ],
+            "type": "polygon",
+            "filters": {
+                "exclude_tags": [
+                    ["name", "__nil__"]
+                ]
+            },
+            "mapping": {
+                "place": [
+                    "city",
+                    "town",
+                    "village",
+                    "hamlet",
+                    "suburb",
+                    "quarter",
+                    "neighbourhood",
+                    "locality",
+                    "isolated_dwelling",
+                    "farm",
+                    "allotments"
+                ]
+            }
+        },
+
+
+        "polygon_poi": {
+            "type": "polygon",
+            "fields": [{
+                "type": "id",
+                "name": "osm_id",
+                "key": null
+            }, {
+                "type": "geometry",
+                "name": "geometry",
+                "key": null
+            }, {
+                "type": "string",
+                "name": "name",
+                "key": "name"
+            }, {
+                "type": "string",
+                "name": "name_uk",
+                "key": "name:uk"
+            }, {
+                "type": "string",
+                "name": "name_ru",
+                "key": "name:ru"
+            }, {
+                "type": "string",
+                "name": "name_pl",
+                "key": "name:pl"
+            }, {
+                "type": "string",
+                "name": "name_en",
+                "key": "name:en"
+            }, {
+                "type": "string",
+                "name": "name_de",
+                "key": "name:de"
+            }, {
+                "type": "string",
+                "name": "addr_housenumber",
+                "key": "addr:housenumber"
+            }, {
+                "type": "string",
+                "name": "addr_street",
+                "key": "addr:street"
+            }, {
+                "type": "string",
+                "name": "addr_suburb",
+                "key": "addr:suburb"
+            }, {
+                "type": "string",
+                "name": "operator",
+                "key": "operator"
+            }, {
+                "type": "string",
+                "name": "phone",
+                "key": "phone"
+            }, {
+                "type": "string",
+                "name": "contact_phone",
+                "key": "contact:phone"
+            }, {
+                "type": "string",
+                "name": "website",
+                "key": "website"
+            }, {
+                "type": "string",
+                "name": "contact_website",
+                "key": "contact:website"
+            }, {
+                "type": "string",
+                "name": "email",
+                "key": "email"
+            }, {
+                "type": "string",
+                "name": "contact_email",
+                "key": "contact:email"
+            }, {
+                "type": "string",
+                "name": "fax",
+                "key": "fax"
+            }, {
+                "type": "string",
+                "name": "contact_fax",
+                "key": "contact:fax"
+            }, {
+                "type": "string",
+                "name": "wikipedia",
+                "key": "wikipedia"
+            }, {
+                "type": "string",
+                "name": "opening_hours",
+                "key": "opening_hours"
+            }, {
+                "type": "string",
+                "name": "advertising",
+                "key": "advertising"
+            }, {
+                "type": "string",
+                "name": "aeroway",
+                "key": "aeroway"
+            }, {
+                "type": "string",
+                "name": "amenity",
+                "key": "amenity"
+            }, {
+                "type": "string",
+                "name": "atm",
+                "key": "atm"
+            }, {
+                "type": "string",
+                "name": "beauty",
+                "key": "beauty"
+            }, {
+                "type": "string",
+                "name": "club",
+                "key": "club"
+            }, {
+                "type": "string",
+                "name": "craft",
+                "key": "craft"
+            }, {
+                "type": "string",
+                "name": "emergency",
+                "key": "emergency"
+            }, {
+                "type": "string",
+                "name": "generator:output:electricity",
+                "key": "generator:output:electricity"
+            }, {
+                "type": "string",
+                "name": "government",
+                "key": "government"
+            }, {
+                "type": "string",
+                "name": "highway",
+                "key": "highway"
+            }, {
+                "type": "string",
+                "name": "historic",
+                "key": "historic"
+            }, {
+                "type": "string",
+                "name": "landuse",
+                "key": "landuse"
+            }, {
+                "type": "string",
+                "name": "lawyer",
+                "key": "lawyer"
+            }, {
+                "type": "string",
+                "name": "leisure",
+                "key": "leisure"
+            }, {
+                "type": "string",
+                "name": "man_made",
+                "key": "man_made"
+            }, {
+                "type": "string",
+                "name": "natural",
+                "key": "natural"
+            }, {
+                "type": "string",
+                "name": "office",
+                "key": "office"
+            }, {
+                "type": "string",
+                "name": "place",
+                "key": "place"
+            }, {
+                "type": "string",
+                "name": "plant:output:electricity",
+                "key": "plant:output:electricity"
+            }, {
+                "type": "string",
+                "name": "power",
+                "key": "power"
+            }, {
+                "type": "string",
+                "name": "railway",
+                "key": "railway"
+            }, {
+                "type": "string",
+                "name": "religion",
+                "key": "religion"
+            }, {
+                "type": "string",
+                "name": "service",
+                "key": "service"
+            }, {
+                "type": "string",
+                "name": "shop",
+                "key": "shop"
+            }, {
+                "type": "string",
+                "name": "sport",
+                "key": "sport"
+            }, {
+                "type": "string",
+                "name": "station",
+                "key": "station"
+            }, {
+                "type": "string",
+                "name": "theatre:genre",
+                "key": "theatre:genre"
+            }, {
+                "type": "string",
+                "name": "tourism",
+                "key": "tourism"
+            }],
+            "mapping": {
+                "advertising": ["billboard", "column", "flag", "sign"],
+                "aeroway": ["aerodrome", "helipad"],
+                "amenity": ["arts_centre", "bank", "bar", "bicycle_parking", "bicycle_rental", "biergarten", "bureau_de_change", "bus_station", "cafe", "car_rental", "car_wash", "charging_station", "cinema", "clinic", "clock", "college", "community_centre", "courthouse", "customs", "dentist", "doctors", "driving_school", "embassy", "fast_food", "ferry_terminal", "fire_station", "food_court", "fountain", "fuel", "hospital", "internet_cafe", "kindergarten", "library", "marketplace", "monastery", "mortuary", "nightclub", "nursing_home", "parking", "pharmacy", "place_of_worship", "police", "post_box", "post_office", "prison", "pub", "recycling", "register_office", "restaurant", "sauna", "school", "shelter", "social_facility", "studio", "taxi", "telephone", "theatre", "toilets", "townhall", "university", "vehicle_inspection", "veterinary", "waste_disposal"],
+                "atm": ["yes"],
+                "beauty": ["nails"],
+                "club": ["art", "astronomy", "automobile", "board_games", "charity", "chess", "cinema", "computer", "ethnic", "fan", "fishing", "game", "history", "hunting", "linux", "motorcycle", "music", "nature", "photography", "shooting", "sport", "theatre", "tourism", "veterans"],
+                "craft": ["agricultural_engines", "basket_maker", "beekeeper", "blacksmith", "boatbuilder", "bookbinder", "brewery", "carpenter", "carpet_layer", "caterer", "clockmaker", "computer", "dressmaker", "electrician", "gardener", "glaziery", "handicraft", "hvac", "insulation", "jeweller", "key_cutter", "locksmith", "metal_construction", "optician", "painter", "parquet_layer", "photographer", "photographic_laboratory", "plasterer", "plumber", "pottery", "rigger", "roofer", "saddler", "sailmaker", "sawmill", "scaffolder", "sculptor", "shoemaker", "stand_builder", "stonemason", "sun_protection", "sweep", "tailor", "tiler", "tinsmith", "upholsterer", "watchmaker", "window_construction"],
+                "emergency": ["ambulance_station", "fire_hydrant", "fire_water_pond", "phone"],
+                "generator:output:electricity": ["*"],
+                "government": ["bailiff", "migration", "pension_fund", "prosecutor", "taxes"],
+                "highway": ["bus_stop", "speed_camera"],
+                "historic": ["archaeological_site", "battlefield", "boundary_stone", "castle", "city_gate", "fort", "memorial", "monument", "ruins", "rune_stone", "ship", "wreck"],
+                "landuse": ["cemetery", "construction", "garages", "landfill"],
+                "lawyer": ["notary"],
+                "leisure": ["beach_resort", "dance", "dog_park", "fishing", "golf_course", "ice_rink", "marina", "miniature_golf", "park", "pitch", "playground", "slipway", "sports_centre", "stadium", "swimming_pool", "track", "water_park"],
+                "man_made": ["bridge", "lighthouse", "standpipe", "telephone_exchange", "tunnel", "wastewater_plant", "water_tower", "water_well", "water_works"],
+                "natural": ["bay", "beach", "cape", "cave_entrance", "strait", "rock" ,"bare_rock", "cliff"],
+                "office": ["accountant", "administrative", "advertising_agency", "architect", "company", "educational_institution", "employment_agency", "estate_agent", "government", "insurance", "it", "lawyer", "newspaper", "ngo", "research", "telecommunication", "travel_agent"],
+                "place": ["island", "islet"],
+                "plant:output:electricity": ["*"],
+                "power": ["generator", "plant", "substation", "station", "transformer"],
+                "railway": ["funicular", "halt", "station", "subway_entrance", "tram_stop"],
+                "religion": ["christian", "jewish", "muslim"],
+                "service": ["tyres"],
+                "shop": ["alcohol", "anime", "antiques", "art", "atv", "baby_goods", "bag", "bakery", "bathroom_furnishing", "beauty", "bed", "bedding", "beverages", "bicycle", "bookmaker", "books", "boutique", "butcher", "car", "car_parts", "car_repair", "carpet", "charity", "chemist", "clothes", "computer", "confectionery", "convenience", "copyshop", "cosmetics", "curtain", "deli", "department_store", "dive", "doityourself", "dry_cleaning", "electronics", "erotic", "fabric", "farm", "fishing", "florist", "frame", "funeral_directors", "furniture", "garden_centre", "gas", "gift", "glaziery", "greengrocer", "hairdresser", "hardware", "hearing_aids", "herbalist", "hifi", "houseware", "hunting", "ice_cream", "interior_decoration", "jewelry", "kiosk", "kitchen", "laundry", "mall", "massage", "mobile_phone", "money_lender", "motorcycle", "musical_instrument", "newsagent", "optician", "organic", "outdoor", "paint", "pawnbroker", "pet", "radiotechnics", "seafood", "second_hand", "sewing", "ship_chandler", "shoes", "sports", "stationery", "supermarket", "tableware", "tattoo", "tea", "ticket", "tobacco", "toys", "trade", "vacuum_cleaner", "variety_store", "video", "window_blind"],
+                "sport": ["cycling", "horse_racing", "running"],
+                "station": ["subway"],
+                "theatre:genre": ["circus"],
+                "tourism": ["artwork", "attraction", "camp_site", "guest_house", "hostel", "hotel", "information", "motel", "museum", "picnic_site", "theme_park", "viewpoint", "zoo"]
+            }
+        },
+        "point_poi": {
+            "type": "point",
+            "fields": [{
+                "type": "id",
+                "name": "osm_id",
+                "key": null
+            }, {
+                "type": "geometry",
+                "name": "geometry",
+                "key": null
+            }, {
+                "type": "string",
+                "name": "name",
+                "key": "name"
+            }, {
+                "type": "string",
+                "name": "name_uk",
+                "key": "name:uk"
+            }, {
+                "type": "string",
+                "name": "name_ru",
+                "key": "name:ru"
+            }, {
+                "type": "string",
+                "name": "name_pl",
+                "key": "name:pl"
+            }, {
+                "type": "string",
+                "name": "name_en",
+                "key": "name:en"
+            }, {
+                "type": "string",
+                "name": "name_de",
+                "key": "name:de"
+            }, {
+                "type": "string",
+                "name": "addr_housenumber",
+                "key": "addr:housenumber"
+            }, {
+                "type": "string",
+                "name": "addr_street",
+                "key": "addr:street"
+            }, {
+                "type": "string",
+                "name": "addr_suburb",
+                "key": "addr:suburb"
+            }, {
+                "type": "string",
+                "name": "operator",
+                "key": "operator"
+            }, {
+                "type": "string",
+                "name": "phone",
+                "key": "phone"
+            }, {
+                "type": "string",
+                "name": "contact_phone",
+                "key": "contact:phone"
+            }, {
+                "type": "string",
+                "name": "website",
+                "key": "website"
+            }, {
+                "type": "string",
+                "name": "contact_website",
+                "key": "contact:website"
+            }, {
+                "type": "string",
+                "name": "email",
+                "key": "email"
+            }, {
+                "type": "string",
+                "name": "contact_email",
+                "key": "contact:email"
+            }, {
+                "type": "string",
+                "name": "fax",
+                "key": "fax"
+            }, {
+                "type": "string",
+                "name": "contact_fax",
+                "key": "contact:fax"
+            }, {
+                "type": "string",
+                "name": "wikipedia",
+                "key": "wikipedia"
+            }, {
+                "type": "string",
+                "name": "opening_hours",
+                "key": "opening_hours"
+            }, {
+                "type": "string",
+                "name": "advertising",
+                "key": "advertising"
+            }, {
+                "type": "string",
+                "name": "aeroway",
+                "key": "aeroway"
+            }, {
+                "type": "string",
+                "name": "amenity",
+                "key": "amenity"
+            }, {
+                "type": "string",
+                "name": "atm",
+                "key": "atm"
+            }, {
+                "type": "string",
+                "name": "barrier",
+                "key": "barrier"
+            }, {
+                "type": "string",
+                "name": "beauty",
+                "key": "beauty"
+            }, {
+                "type": "string",
+                "name": "club",
+                "key": "club"
+            }, {
+                "type": "string",
+                "name": "craft",
+                "key": "craft"
+            }, {
+                "type": "string",
+                "name": "emergency",
+                "key": "emergency"
+            }, {
+                "type": "string",
+                "name": "ford",
+                "key": "ford"
+            }, {
+                "type": "string",
+                "name": "generator:output:electricity",
+                "key": "generator:output:electricity"
+            }, {
+                "type": "string",
+                "name": "government",
+                "key": "government"
+            }, {
+                "type": "string",
+                "name": "highway",
+                "key": "highway"
+            }, {
+                "type": "string",
+                "name": "historic",
+                "key": "historic"
+            }, {
+                "type": "string",
+                "name": "landuse",
+                "key": "landuse"
+            }, {
+                "type": "string",
+                "name": "lawyer",
+                "key": "lawyer"
+            }, {
+                "type": "string",
+                "name": "leisure",
+                "key": "leisure"
+            }, {
+                "type": "string",
+                "name": "man_made",
+                "key": "man_made"
+            }, {
+                "type": "string",
+                "name": "mountain_pass",
+                "key": "mountain_pass"
+            }, {
+                "type": "string",
+                "name": "natural",
+                "key": "natural"
+            }, {
+                "type": "string",
+                "name": "office",
+                "key": "office"
+            }, {
+                "type": "string",
+                "name": "plant:output:electricity",
+                "key": "plant:output:electricity"
+            }, {
+                "type": "string",
+                "name": "power",
+                "key": "power"
+            }, {
+                "type": "string",
+                "name": "railway",
+                "key": "railway"
+            }, {
+                "type": "string",
+                "name": "religion",
+                "key": "religion"
+            }, {
+                "type": "string",
+                "name": "seamark:beacon_special_purpose:category",
+                "key": "seamark:beacon_special_purpose:category"
+            }, {
+                "type": "string",
+                "name": "seamark:type",
+                "key": "seamark:type"
+            }, {
+                "type": "string",
+                "name": "service",
+                "key": "service"
+            }, {
+                "type": "string",
+                "name": "shop",
+                "key": "shop"
+            }, {
+                "type": "string",
+                "name": "sport",
+                "key": "sport"
+            }, {
+                "type": "string",
+                "name": "station",
+                "key": "station"
+            }, {
+                "type": "string",
+                "name": "theatre:genre",
+                "key": "theatre:genre"
+            }, {
+                "type": "string",
+                "name": "tourism",
+                "key": "tourism"
+            }, {
+                "type": "string",
+                "name": "tower:type",
+                "key": "tower:type"
+            }, {
+                "type": "string",
+                "name": "traffic_calming",
+                "key": "traffic_calming"
+            }, {
+                "type": "string",
+                "name": "waterway",
+                "key": "waterway"
+            }],
+            "mapping": {
+                "advertising": ["billboard", "column", "culpture", "flag", "screen", "sign", "wall_painting"],
+                "aeroway": ["aerodrome", "helipad"],
+                "amenity": ["arts_centre", "atm", "bank", "bar", "bicycle_parking", "bicycle_rental", "biergarten", "bureau_de_change", "bus_station", "cafe", "car_rental", "car_wash", "charging_station", "cinema", "clinic", "clock", "college", "community_centre", "courthouse", "customs", "dentist", "doctors", "drinking_water", "driving_school", "embassy", "fast_food", "ferry_terminal", "fire_station", "food_court", "fountain", "fuel", "hospital", "internet_cafe", "kindergarten", "library", "marketplace", "monastery", "mortuary", "nightclub", "nursing_home", "parking", "parking_entrance", "pharmacy", "place_of_worship", "police", "post_box", "post_office", "prison", "pub", "recycling", "register_office", "restaurant", "sauna", "school", "shelter", "social_facility", "studio", "taxi", "telephone", "theatre", "toilets", "townhall", "university", "vehicle_inspection", "vehicle_ramp", "veterinary", "waste_disposal"],
+                "atm": ["yes"],
+                "barrier": ["gate", "lift_gate", "toll_booth"],
+                "beauty": ["nails"],
+                "club": ["art", "astronomy", "automobile", "board_games", "charity", "chess", "cinema", "computer", "ethnic", "fan", "fishing", "game", "history", "hunting", "linux", "motorcycle", "music", "nature", "photography", "shooting", "sport", "theatre", "tourism", "veterans"],
+                "craft": ["agricultural_engines", "basket_maker", "beekeeper", "blacksmith", "boatbuilder", "bookbinder", "brewery", "carpenter", "carpet_layer", "caterer", "clockmaker", "computer", "dressmaker", "electrician", "gardener", "glaziery", "handicraft", "hvac", "insulation", "jeweller", "key_cutter", "locksmith", "metal_construction", "optician", "painter", "parquet_layer", "photographer", "photographic_laboratory", "plasterer", "plumber", "pottery", "rigger", "roofer", "saddler", "sailmaker", "sawmill", "scaffolder", "sculptor", "shoemaker", "stand_builder", "stonemason", "sun_protection", "sweep", "tailor", "tiler", "tinsmith", "upholsterer", "watchmaker", "window_construction"],
+                "emergency": ["ambulance_station", "fire_hydrant", "fire_water_pond", "phone"],
+                "ford": ["yes"],
+                "generator:output:electricity": ["*"],
+                "government": ["bailiff", "migration", "pension_fund", "prosecutor", "taxes"],
+                "highway": ["bus_stop", "speed_camera", "traffic_signals"],
+                "historic": ["archaeological_site", "battlefield", "boundary_stone", "castle", "city_gate", "fort", "memorial", "monument", "ruins", "rune_stone", "ship", "wreck"],
+                "landuse": ["cemetery", "construction", "garages", "landfill"],
+                "lawyer": ["notary"],
+                "leisure": ["beach_resort", "dance", "dog_park", "fishing", "golf_course", "ice_rink", "marina", "miniature_golf", "park", "pitch", "playground", "slipway", "sports_centre", "stadium", "swimming_pool", "track", "water_park"],
+                "man_made": ["bridge", "lighthouse", "standpipe", "surveillance", "telephone_exchange", "tower", "tunnel", "wastewater_plant", "water_tower", "water_well", "water_works"],
+                "mountain_pass": ["yes"],
+                "natural": ["bay", "cape", "cave_entrance", "peak", "saddle", "spring", "strait", "volcano", "waterfall", "rock" ,"bare_rock", "cliff"],
+                "office": ["accountant", "administrative", "advertising_agency", "architect", "company", "educational_institution", "employment_agency", "estate_agent", "government", "insurance", "it", "lawyer", "newspaper", "ngo", "research", "telecommunication", "travel_agent"],
+                "plant:output:electricity": ["*"],
+                "power": ["generator", "plant", "substation", "station", "transformer"],
+                "railway": ["funicular", "halt", "station", "subway_entrance", "tram_stop"],
+                "religion": ["christian", "jewish", "muslim"],
+                "seamark:beacon_special_purpose:category": ["leading"],
+                "seamark:type": ["beacon_special_purpose", "buoy_lateral"],
+                "service": ["tyres"],
+                "shop": ["alcohol", "anime", "antiques", "art", "atv", "baby_goods", "bag", "bakery", "bathroom_furnishing", "beauty", "bed", "bedding", "beverages", "bicycle", "bookmaker", "books", "boutique", "butcher", "car", "car_parts", "car_repair", "carpet", "charity", "chemist", "clothes", "computer", "confectionery", "convenience", "copyshop", "cosmetics", "curtain", "deli", "department_store", "dive", "doityourself", "dry_cleaning", "electronics", "erotic", "fabric", "farm", "fishing", "florist", "frame", "funeral_directors", "furniture", "garden_centre", "gas", "gift", "glaziery", "greengrocer", "hairdresser", "hardware", "hearing_aids", "herbalist", "hifi", "houseware", "hunting", "ice_cream", "interior_decoration", "jewelry", "kiosk", "kitchen", "laundry", "mall", "massage", "mobile_phone", "money_lender", "motorcycle", "musical_instrument", "newsagent", "optician", "organic", "outdoor", "paint", "pawnbroker", "pet", "radiotechnics", "seafood", "second_hand", "sewing", "ship_chandler", "shoes", "sports", "stationery", "supermarket", "tableware", "tattoo", "tea", "ticket", "tobacco", "toys", "trade", "vacuum_cleaner", "variety_store", "video", "window_blind"],
+                "sport": ["cycling", "horse_racing", "running"],
+                "station": ["subway"],
+                "theatre:genre": ["circus"],
+                "tourism": ["artwork", "attraction", "camp_site", "guest_house", "hostel", "hotel", "information", "motel", "museum", "picnic_site", "theme_park", "viewpoint", "zoo"],
+                "tower:type": ["communication"],
+                "traffic_calming": ["bump", "cushion", "hump"],
+                "waterway": ["waterfall"]
+            }
+        },
+        "linestring_poi": {
+            "type": "linestring",
+            "fields": [{
+                "type": "id",
+                "name": "osm_id",
+                "key": null
+            }, {
+                "type": "geometry",
+                "name": "geometry",
+                "key": null
+            }, {
+                "type": "string",
+                "name": "name",
+                "key": "name"
+            }, {
+                "type": "string",
+                "name": "name_uk",
+                "key": "name:uk"
+            }, {
+                "type": "string",
+                "name": "name_ru",
+                "key": "name:ru"
+            }, {
+                "type": "string",
+                "name": "name_pl",
+                "key": "name:pl"
+            }, {
+                "type": "string",
+                "name": "name_en",
+                "key": "name:en"
+            }, {
+                "type": "string",
+                "name": "name_de",
+                "key": "name:de"
+            }, {
+                "type": "string",
+                "name": "addr_housenumber",
+                "key": "addr:housenumber"
+            }, {
+                "type": "string",
+                "name": "addr_street",
+                "key": "addr:street"
+            }, {
+                "type": "string",
+                "name": "addr_suburb",
+                "key": "addr:suburb"
+            }, {
+                "type": "string",
+                "name": "operator",
+                "key": "operator"
+            }, {
+                "type": "string",
+                "name": "phone",
+                "key": "phone"
+            }, {
+                "type": "string",
+                "name": "contact_phone",
+                "key": "contact:phone"
+            }, {
+                "type": "string",
+                "name": "website",
+                "key": "website"
+            }, {
+                "type": "string",
+                "name": "contact_website",
+                "key": "contact:website"
+            }, {
+                "type": "string",
+                "name": "email",
+                "key": "email"
+            }, {
+                "type": "string",
+                "name": "contact_email",
+                "key": "contact:email"
+            }, {
+                "type": "string",
+                "name": "fax",
+                "key": "fax"
+            }, {
+                "type": "string",
+                "name": "contact_fax",
+                "key": "contact:fax"
+            }, {
+                "type": "string",
+                "name": "wikipedia",
+                "key": "wikipedia"
+            }, {
+                "type": "string",
+                "name": "opening_hours",
+                "key": "opening_hours"
+            }, {
+                "type": "string",
+                "name": "advertising",
+                "key": "advertising"
+            }, {
+                "type": "string",
+                "name": "amenity",
+                "key": "amenity"
+            }, {
+                "type": "string",
+                "name": "ford",
+                "key": "ford"
+            }, {
+                "type": "string",
+                "name": "highway",
+                "key": "highway"
+            }, {
+                "type": "string",
+                "name": "leisure",
+                "key": "leisure"
+            }, {
+                "type": "string",
+                "name": "mountain_pass",
+                "key": "mountain_pass"
+            }, {
+                "type": "string",
+                "name": "natural",
+                "key": "natural"
+            }, {
+                "type": "string",
+                "name": "railway",
+                "key": "railway"
+            }, {
+                "type": "string",
+                "name": "shop",
+                "key": "shop"
+            }, {
+                "type": "string",
+                "name": "sport",
+                "key": "sport"
+            }, {
+                "type": "string",
+                "name": "tourism",
+                "key": "tourism"
+            }],
+            "mapping": {
+                "advertising": ["billboard", "culpture", "screen", "sign", "wall_painting"],
+                "amenity": ["clock"],
+                "ford": ["yes"],
+                "highway": ["raceway"],
+                "leisure": ["track"],
+                "mountain_pass": ["yes"],
+                "natural": ["strait"],
+                "railway": ["funicular"],
+                "shop": ["tea"],
+                "sport": ["cycling", "horse_racing", "running"],
+                "tourism": ["artwork"]
+            }
+        }        
     }
 }
